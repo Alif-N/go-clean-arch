@@ -6,13 +6,11 @@ import (
 	"log"
 	"os"
 
-	"github.com/joho/godotenv"
 	_ "github.com/go-sql-driver/mysql"
+	"github.com/joho/godotenv"
 )
 
-var DB *sql.DB
-
-func ConnectDB() {
+func ConnectDB() *sql.DB {
 	if err := godotenv.Load(); err != nil {
 		log.Println("No .env file found, using system environment variables")
 	}
@@ -35,6 +33,6 @@ func ConnectDB() {
 		log.Fatal("Database not responding:", err)
 	}
 
-	DB = db
 	log.Println("Database connection established")
+	return db
 }

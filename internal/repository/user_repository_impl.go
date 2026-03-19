@@ -33,17 +33,17 @@ func (r *userRepository) GetAll() ([]models.User, error) {
 	return users, nil
 }
 
-func (r *userRepository) Create(user model.User) (model.User, error) {
+func (r *userRepository) Create(user models.User) (models.User, error) {
 	query := "INSERT INTO users(name) VALUES(?)"
 
 	result, err := r.db.Exec(query, user.Name)
 	if err != nil {
-		return model.User{}, err
+		return models.User{}, err
 	}
 
 	id, err := result.LastInsertId()
 	if err != nil {
-		return model.User{}, err
+		return models.User{}, err
 	}
 
 	user.ID = int(id)

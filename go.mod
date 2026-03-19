@@ -1,4 +1,4 @@
-module go-rest-api
+module go-clean-architecture
 
 go 1.26.1
 
