@@ -57,7 +57,12 @@ go-clean-arch/
    go mod download
    ```
 
-3. Create a `.env` file in the project root:
+3. Create a `.env` file in the project root (or copy from `.env.example`):
+   ```bash
+   cp .env.example .env
+   ```
+   
+   Then edit `.env` with your database credentials:
    ```env
    DB_USERNAME=root
    DB_PASSWORD=your_password
